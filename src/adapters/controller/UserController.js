@@ -9,13 +9,12 @@ class UserController {
 		this.signup = this.signup.bind(this);
 		this.login = this.login.bind(this);
 		this.findAll = this.findAll.bind(this);
-
 	    }
 	
      async signup(req, res) {
-        const { name, email, password, role } = req.body;
+        const { name, email, password } = req.body;
         try {
-            const user = { name, email, password, role };
+            const user = { name, email, password };
             const result = await this.createUseCase.execute(user);
             if (result.success === false) {
                 return res.status(400).json({ message: result.message });
