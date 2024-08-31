@@ -24,10 +24,28 @@ class UserNotFound extends BaseError{
 	    super(404,"Usuário não encontrado")
 	}
 }
+class InvalidCardName extends BaseError{
+	constructor(){
+	  super(400,"Nome de card inválido")
+      }
+}
+class InvalidCardStatus extends BaseError{
+	constructor(){
+	  super(400,"Status inválido")
+      }
+}
+class CardNotFound extends BaseError{
+	constructor(){
+	  super(404,"Card não encontrado")
+      }
+}
 module.exports = {
 	BaseError,
 	InvalidEmail,
 	InvalidName,
 	InvalidPassword,
 	UserNotFound,
+	InvalidCardName,
+	CardNotFound,
+	InvalidCardStatus
 };

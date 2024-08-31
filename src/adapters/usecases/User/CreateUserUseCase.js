@@ -1,8 +1,8 @@
 // CreateUserUseCase.js
-const { BaseError, InvalidEmail, InvalidName, InvalidPassword } = require('../../error/BaseError');
-const UserService = require('../services/UserService');
+const { BaseError, InvalidEmail, InvalidName, InvalidPassword } = require('../../../error/BaseError');
+const UserService = require('../../services/UserService');
 
-class CreateUseCase {
+class CreateUserUseCase {
     constructor() {
         this.userService = new UserService();
     }
@@ -35,4 +35,4 @@ class CreateUseCase {
     }
 }
 
-module.exports = CreateUseCase;
+module.exports = CreateUserUseCase;

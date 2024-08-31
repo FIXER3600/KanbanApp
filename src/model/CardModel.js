@@ -1,22 +1,21 @@
-// ../models/User.js
 const { DataTypes, UUIDV4 } = require('sequelize');
 const sequelize = require('../config/database');
 
-const UserModel = sequelize.define('User', {
+const CardModel = sequelize.define('Card', {
     id: {
         type: DataTypes.UUID,
         defaultValue: UUIDV4, // Gera um UUID v4 automaticamente
         primaryKey: true,
     },
-    name: {
+    title: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    email: {
+    description: {
         type: DataTypes.STRING,
         unique: true,
     },
-    password: {
+    status: {
         type: DataTypes.STRING,
     },
     createdAt: {
@@ -28,15 +27,8 @@ const UserModel = sequelize.define('User', {
         allowNull: false,
     }
 }, {
-    tableName: 'Users',
+    tableName: 'Cards',
     timestamps: true,
 });
-UserModel.getUserByEmail = async function(email) {
-	try {
-	    return await this.findOne({ where: { email } });
-	} catch (error) {
-	    throw new Error('Error retrieving user by email: ' + error.message);
-	}
-    };
 
-module.exports = UserModel;
+module.exports = CardModel;

@@ -1,7 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const sequelize = require('./src/config/database');
-const userRouter = require('./src/routes/userRouter'); // Correto
+const userRouter = require('./src/routes/userRouter'); 
+const cardRouter = require('./src/routes/cardRouter')
 require('dotenv').config();
 const app = express();
 
@@ -32,6 +33,7 @@ syncDatabase().then(() => {
     });
 
     app.use('/user', userRouter);
+    app.use('/card', cardRouter);
     // Se você tiver outro roteador para `/card`, certifique-se de importá-lo e usá-lo aqui
     // const cardRouter = require('./src/routes/cardRouter'); // Exemplo
     // app.use('/card', cardRouter);
