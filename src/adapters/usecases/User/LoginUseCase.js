@@ -1,6 +1,6 @@
 // LoginUserUseCase.js
-const BaseError = require('../../error/BaseError');
-const UserService = require('../services/UserService');
+const BaseError = require('../../../error/BaseError');
+const UserService = require('../../services/UserService');
 
 class LoginUserUseCase {
     constructor() {
